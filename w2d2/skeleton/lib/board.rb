@@ -5,8 +5,6 @@ class Board
     @cups = Array.new(14) { [] }
     @player_one = name1
     @player_two = name2
-    @p1_stones = @cups.select.with_index { |_, i| i < 6 }
-    @p2_stones = @cups.select.with_index { |_, i| i >= 7 && i < 13 }
     place_stones
 
   end
@@ -25,30 +23,25 @@ class Board
   def make_move(start_pos, current_player_name)
     stones = []
     @cups[start_pos].size.times { stones << @cups[start_pos].shift }
-    if start_pos < 6
-      stones.each_index do |i|
-        x = start_pos + i + 1
-        x -= 14 if x > 13
-        p x
-        @cups[x] << stones[i] unless x == 13
-      end
-    else
-      stones.each_index do |i|
-        x = start_pos + i + 1
-        x -= 14 if x > 13
-        p x
-        @cups[x] << stones[i] unless x == 6
+    i = start_pos
+    until stones.empty?
+      i += 1
+      i = 0 if i > 13
+      if i == 6
+        @cups[i] << stones.shift if current_player_name == @player_one
+      elsif i == 13
+        @cups[i] << stones.shift if current_player_name == @player_two
+      else
+        @cups[i] << stones.shift
       end
     end
     render
-    y = start_pos + stones.size
-    y -= 14 if y > 13
-    next_turn(y)
+    next_turn(i)
   end
 
   def next_turn(ending_cup_idx)
-    return :switch if @cups[ending_cup_idx].empty?
     return :prompt if ending_cup_idx == 13 || ending_cup_idx == 6
+    return :switch if @cups[ending_cup_idx].size == 1
     ending_cup_idx
     # helper method to determine what #make_move returns
   end
@@ -62,7 +55,7 @@ class Board
   end
 
   def one_side_empty?
-    @p1_stones.all?(&:empty?) || @p2_stones.all?(&:empty?)
+    @cups[0...6].all?(&:empty?) || @cups[7..12].all?(&:empty?)
   end
 
   def winner
