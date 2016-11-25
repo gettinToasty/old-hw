@@ -38,7 +38,7 @@ def clever_octopus(arr)
 end
 
 tiles_array = ["up", "right-up", "right", "right-down",
-              "down", "left-down", "left",  "left-up" ]
+              "down", "left-down", "left", "left-up" ]
 
 def slow_dance(target, tiles_array)
   idx = nil
