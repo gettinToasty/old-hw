@@ -47,10 +47,10 @@ View.prototype.exercise4 = function () {
   //Result: Your name appears in every other square.
 
   //your code here!
-  let $liItems = $('li');
+  let $liItems = $('.square');
   let writeName = true;
   for (let i = 0; i < $liItems.length; i++) {
-    if (writeName) { $liItems[i].text("sean"); }
+    if (writeName) { $liItems[i].textContent = "sean"; }
     writeName = !writeName;
   }
 };
@@ -79,8 +79,9 @@ View.prototype.exercise6 = function () {
   //hint: use window._randomColorString() (defined at top) to get a random color!
 
   //your code here!
-  $('li').forEach(() => {
-    this.css("background-color", window._randomColorString());
+  const $squares = $('.square');
+  $squares.each((i) => {
+    $($squares[i]).css("background-color", window._randomColorString());
   });
 };
 
