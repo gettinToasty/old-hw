@@ -21504,6 +21504,7 @@
 	      console.log(action);
 	      store.dispatch(action);
 	      console.log(store.getState());
+	      return next(action);
 	    };
 	  };
 	};
