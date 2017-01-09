@@ -1,0 +1,164 @@
+body {
+  color: white;
+  font-family: sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: brown;
+}
+
+img {
+  opacity: 0.6;
+}
+
+h1, p, a {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+h1 {
+  margin-bottom: 32px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  position: absolute;
+  border-bottom: 4px solid white;
+  width: 100%;
+  padding: 16px;
+  z-index: 1;
+}
+
+nav a {
+  font-size: 16px;
+  margin-right: 16px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  transition: 0.2s all;
+}
+
+nav a:hover {
+  border-bottom: 1px solid white;
+}
+
+nav div.group {
+  display: flex;
+  align-items: baseline;
+}
+
+nav p {
+  display: block;
+  margin-right: 16px;
+}
+
+nav img {
+  height: auto;
+  width: 24px;
+  opacity: 1;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  padding: 16px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+section {
+  position: absolute;
+  top: 100px;
+  z-index: 1;
+  padding: 32px;
+}
+
+form {
+  margin-bottom: 16px;
+}
+input {
+  margin-left: 8px;
+  border: none;
+  padding: 4px;
+  color: brown;
+}
+
+input:focus {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+input[type='submit'] {
+  border-radius: 0;
+  border: none;
+  background-color: white;
+  transition: 0.2s all;
+}
+
+input[type='submit']:hover {
+  background-color: brown;
+  color: white;
+}
+
+input[type='submit']:active {
+  background-color: white;
+  color: white;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.hero {
+  top: 33%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 32px;
+  position: fixed;
+  border: 8px solid white;
+  width: 50%;
+  z-index: 1;
+}
+
+.hero h1 {
+  margin-bottom: 16px;
+}
+
+.hero p {
+  margin-bottom: 8px;
+}
+
+.button {
+  display: block;
+  width: 100px;
+  float: left;
+  border: 2px solid white;
+  text-decoration: none;
+  padding: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  transition: 0.2s all;
+  box-sizing: border-box;
+}
+.button:hover {
+  background-color: rgba(255,255,255,0.3);
+  border: 2px solid white;
+}
+
+.button:active {
+  background-color: white;
+}
+
+.list-item {
+  display: none;
+}
