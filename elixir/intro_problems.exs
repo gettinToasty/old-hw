@@ -62,7 +62,7 @@ defmodule MyList do
     Enum.each(list, 
       fn(el) ->
         if func(el) do
-          results ++ el
+          results ++ [el]
         end
       end
     )
@@ -87,11 +87,32 @@ defmodule MyList do
     results = []
     Enum.each(list,
       fn(el) -> 
-        results ++ func(el)
+        results ++ [func(el)]
       end
     )
 
     results
+  end
+
+  def my_uniq(list) do
+    map = %{}
+    results = []
+    Enum.each(list, 
+      fn(el) -> 
+        if !map[el] do
+          map[el] = true
+          results ++ [el]
+        end
+      end
+    )
+  end
+
+  def my_flatten(list) do
+    
+  end
+
+  def my_zip(list) do
+    
   end
 
 end
