@@ -116,3 +116,36 @@ defmodule MyList do
   end
 
 end
+
+defmodule Substrings do
+  
+  def substrings do
+    
+  end
+
+end
+
+defmodule Mergesort do
+  
+  def sort do
+    
+  end
+
+end
+
+defmodule Curry do
+  
+  def curry(func) do
+    {_, arity} = :erlang.fun_info(func, :arity)
+    curry(func, arity, [])
+  end
+
+  def curry(func, 0, arguments) do
+    apply(func, Enum.reverse(arguments))
+  end
+
+  def curry(func, arity, arguments) do
+    fn arg -> curry(func, arity - 1, [arg | arguments]) end
+  end
+
+end
